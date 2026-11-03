@@ -1,0 +1,24 @@
+    A 3333   C C     7  E 7777E E7 7    E EE E E E 7        F F   
+    A 333    C C     7  E  77 E E777    E EEEE EE  7        F F   
+777 A 999  C F F        3      3  9  99  A  C      E  E  CCC 3  E 
+777 A 999  C F F        3      3  9  999 A  C      E  E  CCC 3  E 
+    E     EE 777    AAA 3     E EAAA 99 999 E  AA  E     CC  A  EE
+    E     E E7 7    A A 3     E EA A99999 9 E AA A E     C C A E E
+ E  7     99 999    EE  7  99  C  AA    333    33 999 E  EE  E    
+ E  7     9 99 9    E E 7 9  9 C A A    3 3   33 39 9 E E  E E    
+    F  F      E         A      A  E  77 EE  C  AA 333        A    
+   F F F      E         A      A  E 7  7E E C A  A3 3        A    
+FF CCC 33 EE EEE    EEEEEEEEEE33  33AAAA99  99 EE  A EEEEEEE 3  EE
+  F C 3  3  E E      E  E     3 33 3    9 99  E  E A  E     3 3E  
+999 9  33 999 7 9999999 C  FF 777333 33 333 E 7777 7  77  F EEE999
+   9  3  3   7       9 C  F  F 7    3  3 3 E        77  F  F E    
+333FFF7777777EEE 77 EEE 3 EEEE999 A  CC 999 F  AA  A  F   E  9  C 
+  7 9       77  C  C E  C       E7  C  C  3 C E  E E C         A  
+77 999333377  7  CC EEECCCAAAA E  7  CC  3 CCC EE EEE C 7777 C  AA
+  F9 9     A  9       EA A     C E       C A  E  E A A       3 E  
+FF  9      A  9     EE  AAEEEECCC E     CCC AA EE  A  AA     3  EE
+    E      C 3 3A  A 9  3 E  E E E E7  7 E A A    E E7 7    3 3   
+    E      C 333 AA  9  3  EE  E  EE 77  E  AA    EE  77    333   
+7 7 A     7 7 C 7 77 A  A 9 993 3 9 A  A E        F F E 99 9 7    
+77  A     77  C  77  A  A  99 333 9  AA  E        F   E  99  7    
+E E C C C  A E E    E E 9     9 9E EAAAA3 33 33333A A A     E E7 7
