@@ -534,6 +534,22 @@
       out.textContent = ascii;
     }
   </script>
-  <script src="/assets/sovereign-upgrade.js" defer></script>
+  
+
+  <script src="/sovereign_tutorial.js"></script>
+  <script>
+    window.addEventListener("DOMContentLoaded", function() {
+      if (window.createSovereignTutorial) {
+        window.createSovereignTutorial({
+          toolId: "zoth-scene-foundry",
+          toolName: "Zoth Scene Foundry",
+          tagline: "Procedural 3D scene builder, environment lighting, and cinematic asset renderer!",
+          accentColor: "#F59E0B",
+          steps: [{"icon": "\ud83c\udff0", "title": "Build 3D Worlds", "desc": "Assemble terrain, futuristic architecture, and props into coherent 3D environments."}, {"icon": "\u2600\ufe0f", "title": "Cinematic Lighting", "desc": "Control directional sun angles, ambient bounce light, and volumetric god-rays with live sliders."}, {"icon": "\ud83d\udcf8", "title": "High-Res Render Camera", "desc": "Capture photorealistic 4K screenshots or looping fly-through animations directly in your browser."}]
+        });
+      }
+    });
+  </script>
+
 </body>
 </html>
