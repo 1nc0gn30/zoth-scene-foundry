@@ -28,15 +28,17 @@ def test_scene_foundry_http_endpoints():
         srv.server_close()
 
 def test_scene_foundry_cli_synthesis_and_tubes():
+    import shutil
+    cli_bin = shutil.which("zoth-scene-foundry") or "/usr/local/bin/zoth-scene-foundry"
     res1 = subprocess.run(
-        ["/opt/.local/bin/zoth-scene-foundry", "--synthesize", "42"],
+        [cli_bin, "--synthesize", "42"],
         capture_output=True, text=True, check=True
     )
     assert "ZOTH SCENE FOUNDRY #42" in res1.stdout
     assert "BAYER 8x8 DITHER MATRIX" in res1.stdout
 
     res2 = subprocess.run(
-        ["/opt/.local/bin/zoth-scene-foundry", "--tubes"],
+        [cli_bin, "--tubes"],
         capture_output=True, text=True, check=True
     )
     assert "aurum_gold" in res2.stdout
