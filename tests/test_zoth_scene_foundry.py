@@ -28,8 +28,10 @@ def test_scene_foundry_http_endpoints():
         srv.server_close()
 
 def test_scene_foundry_cli_synthesis_and_tubes():
+    import os
     import shutil
-    cli_bin = shutil.which("zoth-scene-foundry") or "/usr/local/bin/zoth-scene-foundry"
+    local_bin = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "bin", "zoth-scene-foundry")
+    cli_bin = local_bin if os.path.isfile(local_bin) else (shutil.which("zoth-scene-foundry") or "/usr/local/bin/zoth-scene-foundry")
     res1 = subprocess.run(
         [cli_bin, "--synthesize", "42"],
         capture_output=True, text=True, check=True

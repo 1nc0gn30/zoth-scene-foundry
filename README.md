@@ -1,137 +1,107 @@
 <div align="center">
-  <img src="assets/hero-banner.svg" alt="Zoth Scene Foundry — Sovereign Architecture Banner" width="100%" />
+  <img src="assets/hero-banner.svg" alt="Zoth Scene Foundry Banner" width="100%" />
 </div>
 
-<br />
+# Zoth Scene Foundry
 
-<div align="center">
-  <a href="https://zoth.nullai.tech/tools/zoth-scene-foundry"><img src="https://img.shields.io/badge/Zoth_Studio_v2-Workspace-D4AF37?style=for-the-badge&logo=sparkles&logoColor=black" alt="Zoth Studio Workspace" /></a>
-  <a href="http://127.0.0.1:8823"><img src="https://img.shields.io/badge/Workstation-Port_:8823-38BDF8?style=for-the-badge&logo=linux&logoColor=black" alt="Port :8823" /></a>
-  <a href="https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X"><img src="https://img.shields.io/badge/Support-Buy_Us_a_Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy Us a Coffee" /></a>
-  <a href="https://nullai.tech"><img src="https://img.shields.io/badge/Security-100%25_Zero--Egress-10B981?style=for-the-badge&logo=shield&logoColor=black" alt="Zero Egress" /></a>
-</div>
+**Procedural ASCII, Ordered Bayer Dither & Pixel-Art Scene Engine (`v1.0.0`)**
 
-# 🎨 Zoth Scene Foundry
+- **Zoth Studio Dossier**: [https://zoth.nullai.tech/tools/zoth-scene-foundry](https://zoth.nullai.tech/tools/zoth-scene-foundry)
+- **Local Workstation URL**: `http://127.0.0.1:8823`
+- **Repository**: [https://github.com/1nc0gn30/zoth-scene-foundry](https://github.com/1nc0gn30/zoth-scene-foundry)
+- **Author**: [1nc0gn30](https://1nc0gn30.si) (`@1nc0gn30`) • [NullAI](https://nullai.tech)
 
-> **Procedural ZothOS-style ASCII + pixel-art scene engine — 1000 deterministic scenes with Bayer 8×8 dither, cathode tube palettes, and Three.js AsciiEffect stage on :8823.**
+## Overview
 
----
+Zoth Scene Foundry synthesizes 1,000 deterministic procedural ASCII, pixel-art, and 3D signed-distance-field (SDF) scenes (`ZS-0000` through `ZS-0999`) across 17 contact sheets. Because the core scalar-field, ordered Bayer dither, integer-upscaled pixel rasterizer, and software 3D/raymarch modules (`src/*.js`) run without DOM dependencies, Node.js (`export-foundry.js`) and the browser workstation (`public/index.html` + `gallery.html`) produce byte-identical outputs.
 
-## 🏛️ Architectural Overview
+Core capabilities:
+- **1,000 Deterministic Scenes**: Parametric geometric fields, raymarched 3D SDF panels (125 scenes), ordered Bayer dithering, and palette-snapped pixel-art PNG exports.
+- **6 Cathode Tube Palettes**: `gold`, `amber`, `cyan`, `emerald`, `crimson`, and `obsidian` (`aurum_gold`, `retro_amber`, `cyber_cyan`, `sovereign_emerald`, `ghost_crimson`).
+- **Dual Workstation & Contact Gallery**: Interactive synthesis stage at `http://127.0.0.1:8823` plus a searchable 1,000-scene contact sheet gallery at `http://127.0.0.1:8823/gallery.html`.
 
-**Zoth Scene Foundry** is an official sovereign tool in the **[Zoth Studio v2](https://zoth.nullai.tech)** (77-Tool Matrix) and **[ZothOS Linux 3.3](https://zothos.nullai.tech)** ecosystem, engineered by **1nc0gn30 • NullAI ([@1nc0gn30](https://github.com/1nc0gn30))**.
+## Architecture
 
-| Property | Specification |
-| :--- | :--- |
-| **Tool ID** | `zoth-scene-foundry` |
-| **Category** | `Media & 3D` |
-| **Workstation Port** | `http://127.0.0.1:8823` |
-| **Gallery Route** | [`http://127.0.0.1:8823/gallery.html`](http://127.0.0.1:8823/gallery.html) |
-| **Execution Mode** | `browser` / `local_cli` |
-| **Zoth Studio Route** | [`http://127.0.0.1:3000/tools/zoth-scene-foundry`](http://127.0.0.1:3000/tools/zoth-scene-foundry) |
-| **Total Scenes** | 1000 Deterministic Compositions Across 17 Sheets |
-| **Dither Engine** | Ordered 8×8 Bayer Matrix + Signed Distance Field Raymarching |
-| **Licensing** | **100% Free & Open-Access** (Zero Paywalls) |
+```text
+zoth-scene-foundry/
+├── server.py                        # ThreadingHTTPServer & telemetry API on 127.0.0.1:8823
+├── bin/
+│   ├── zoth-scene-foundry           # ZothOS v3.4.0 CLI (--status, --json, --scenes, --tubes, --synthesize, --serve)
+│   └── zoth-scene-foundry-tui       # Unicode U+2800 Braille sparkline TUI & latency benchmark
+├── src/
+│   ├── zoth-fields.js               # Parametric 2D/3D scalar fields & SDF primitives
+│   ├── zoth-ascii.js                # Glyph ramps & ordered Bayer dither quantizer
+│   ├── zoth-pixel.js                # Palette-snapped pixel-art rasterizer
+│   ├── zoth-three-soft.js           # Zero-DOM software 3D projection stage
+│   ├── zoth-three-ascii.js          # Three.js AsciiEffect / 3D ASCII mesh adapter
+│   └── zoth-foundry.js              # Deterministic 1,000-scene catalog orchestrator
+├── export-foundry.js                # Headless Node batch exporter (JSONL, TXT, PNG, SVG sheets)
+├── verify-foundry.js                # In-browser 1,000-scene invariant assertion script
+├── public/                          # Browser workstation & gallery assets
+└── tests/
+    └── test_zoth_scene_foundry.py   # Pytest suite for HTTP endpoints and CLI synthesis
+```
 
----
-
-## 💎 Key Capabilities
-
-- **1000 Cataloged Deterministic Scenes**: Full procedural gallery browsing at `/gallery.html` with real-time field filters and tube palette selectors.
-- **Ordered Bayer Dithering**: Authentic retro monochrome and multi-shade matrix rendering directly in the browser canvas.
-- **Cathode Tube Color Profiles**: Aurum Gold, Retro Amber, Cyber Cyan, Sovereign Emerald, and Ghost Crimson.
-- **Three.js AsciiEffect Stage**: Real-time 3D geometry rendered as ASCII character grids at 60 FPS.
-- **100% Client-Side Synthesis**: Zero external network egress, no telemetry, no tracking.
-
----
-
-## 💻 ZothOS CLI Binary Usage
+## Quickstart
 
 ```bash
-# Check daemon & workstation status
-zoth-scene-foundry --status
-
-# Output telemetry JSON
-zoth-scene-foundry --json
-
-# View available cathode tube palettes
-scene-foundry --tubes
-
-# Synthesize deterministic ASCII scene from seed
-zoth-foundry --synthesize 42
-
-# Start standalone web server on custom port
-zoth-scene-foundry --serve 8823
+git clone https://github.com/1nc0gn30/zoth-scene-foundry.git
+cd zoth-scene-foundry
+python3 server.py --port 8823
 ```
 
----
+Open `http://127.0.0.1:8823` for the interactive workstation or `http://127.0.0.1:8823/gallery.html` to browse all 1,000 scenes.
 
-## ☕ Support 1nc0gn30 • NullAI & NullAI Platform
+## CLI & Batch Export Usage
 
-This tool is 100% free, open, and unlocked by default. If it empowers your creative coding workflow, consider supporting ongoing development:
+### ZothOS v3.4.0 & Standalone CLI
 
-- **Stripe "Buy Us a Coffee"**: [https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X](https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X)
-- **Solana Tip Address**: `GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK`
+```bash
+# Inspect CLI flags and JSON status telemetry
+./bin/zoth-scene-foundry --help
+./bin/zoth-scene-foundry --status --json
 
----
+# List cathode tube palettes and cataloged scene count
+./bin/zoth-scene-foundry --tubes
+./bin/zoth-scene-foundry --scenes
 
-<div align="center">
-  <sub>Engineered by <b>1nc0gn30 • NullAI</b> (<a href="https://github.com/1nc0gn30">@1nc0gn30</a>) &bull; <a href="https://nullai.tech">NullAI Platform</a> &bull; <a href="https://zoth.nullai.tech">Zoth Studio v2</a></sub>
-</div>
+# Synthesize a deterministic Bayer 8x8 dither matrix from an integer seed
+./bin/zoth-scene-foundry --synthesize 42
 
----
-
-## 🏛️ ZothOS v3.4, Zoth Studio v2 & Obsidian Second Brain Ecosystem
-
-```mermaid
-flowchart LR
-    subgraph ZothOS["🐧 ZothOS v3.4 CLI & Braille TUI"]
-        CLI["zoth-scene-foundry --help / --json"]
-        TUI["zoth-scene-foundry-tui<br/>Unicode U+2800 2x4 Braille"]
-    end
-
-    subgraph Workstation["⚡ Sovereign Workstation"]
-        WEB["http://127.0.0.1:8823<br/>REST API & /health"]
-    end
-
-    subgraph Studio["🌌 Zoth Studio v2 & ZothOS-Lite"]
-        GODMODE["http://127.0.0.1:3000/tools/zoth-scene-foundry<br/>God-Mode Workstation"]
-        LITE["http://127.0.0.1:8145<br/>ZothOS-Lite Web Desktop"]
-    end
-
-    subgraph SecondBrain["💎 Obsidian Second Brain & STDP"]
-        TRACKER["http://127.0.0.1:8151<br/>Zoth Obsidian Tracker"]
-        NEURO["http://127.0.0.1:8094<br/>Neuro-Memory STDP Cortex"]
-        NOTE["Studio/Tools/Studio zoth-scene-foundry.md"]
-    end
-
-    CLI --> WEB
-    TUI --> WEB
-    WEB <--> GODMODE
-    WEB <--> LITE
-    WEB --> TRACKER
-    TRACKER <--> NOTE
-    NOTE <--> NEURO
+# Run the Unicode U+2800 Braille TUI benchmark
+./bin/zoth-scene-foundry-tui --json
 ```
 
-### Cross-Surface Integration Matrix
+### Headless Node Batch Exporter
 
-| Surface | Endpoint / Binary | Capabilities |
+```bash
+# Export a subset or all 1,000 scenes to out/ (JSONL, ASCII, PNG, SVG sheets)
+node export-foundry.js out --limit 25 --scale 3
+```
+
+### REST API Endpoints (`127.0.0.1:8823`)
+
+| Method | Endpoint | Description |
 | :--- | :--- | :--- |
-| **Standalone Workstation** | `http://127.0.0.1:8823` | 100% Free & Open-Access Web Deck, live `/health` & REST telemetry |
-| **Zoth Studio v2 Route** | `http://127.0.0.1:3000/tools/zoth-scene-foundry` | Interactive God-Mode component inside Zoth Studio (`https://zoth.nullai.tech`) |
-| **ZothOS v3.4 CLI & TUI** | `zoth-scene-foundry` / `zoth-scene-foundry-tui` | Global binary in `/usr/local/bin/` with Unicode `U+2800` Braille TUI & `--json` output |
-| **ZothOS-Lite Web Desktop** | `http://127.0.0.1:8145` | Browser-native KDE-style window manager & terminal launcher |
-| **Zoth Obsidian Tracker** | `http://127.0.0.1:8151` | Interactive Obsidian Second Brain vault explorer (`~/Documents/Obsidian Vault/Studio/Tools/Studio zoth-scene-foundry.md`) |
-| **Neuro-Memory STDP Cortex** | `http://127.0.0.1:8094` | 3-Factor STDP synaptic memory daemon & 21-tool MCP server |
+| `GET` | `/health`, `/api/health` | Daemon health status, version (`1.0.0`), and active port |
+| `GET` | `/api/status` | Catalog scene count (`1000`), engine metadata, and tube palette list |
+| `GET` | `/api/scenes` | Sample slice of indexed scene descriptors from `out/index.json` |
+
+## Testing & Verification
 
 ```bash
-# Inspect CLI & Unicode U+2800 Braille TUI on ZothOS v3.4
-zoth-scene-foundry --help
-zoth-scene-foundry-tui --status
-zoth-scene-foundry-tui --json
+# Run pytest suite (uses ephemeral port=0)
+python3 -m pytest -q
 
-# Verify Second Brain Vault & 12-Step Verification Gallery on :8151
-zoth-obsidian-tracker --verify
+# Verify server & CLI JSON telemetry
+python3 server.py --status --json
+./bin/zoth-scene-foundry --status --json
 ```
 
+## Support
+
+Zoth Scene Foundry is 100% free and open-source with zero paywalls or feature gates. Optional support: [Buy Us a Coffee (Stripe)](https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X).
+
+## License
+
+Released under the [MIT License](LICENSE). Copyright (c) 2026 [1nc0gn30](https://1nc0gn30.si) & [NullAI](https://nullai.tech).

@@ -59,8 +59,7 @@ class SceneFoundryHandler(http.server.SimpleHTTPRequestHandler):
                 "tubes": ["gold", "amber", "cyan", "emerald", "crimson", "obsidian"],
                 "pricing": "100% Free & Open-Access",
                 "support": {
-                    "stripe": "https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X",
-                    "solana": "GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK"
+                    "stripe": "https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X"
                 }
             })
             return
@@ -108,7 +107,24 @@ def run_server(host=DEFAULT_HOST, port=DEFAULT_PORT):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Zoth Scene Foundry Server")
+    parser.add_argument("--version", action="version", version="zoth-scene-foundry 1.0.0")
     parser.add_argument("--host", default=DEFAULT_HOST, help=f"Host to bind (default: {DEFAULT_HOST})")
     parser.add_argument("--port", type=int, default=DEFAULT_PORT, help=f"Port to bind (default: {DEFAULT_PORT})")
+    parser.add_argument("--status", action="store_true", help="Print status payload and exit")
+    parser.add_argument("--json", action="store_true", help="Emit JSON status payload and exit")
     args = parser.parse_args()
+
+    if args.status or args.json:
+        print(json.dumps({
+            "ok": True,
+            "tool": "zoth-scene-foundry",
+            "version": "1.0.0",
+            "host": args.host,
+            "port": args.port,
+            "local_url": f"http://{args.host}:{args.port}",
+            "studio_url": "https://zoth.nullai.tech/tools/zoth-scene-foundry",
+            "tubes": ["gold", "amber", "cyan", "emerald", "crimson", "obsidian"],
+        }, indent=2))
+        sys.exit(0)
+
     run_server(args.host, args.port)

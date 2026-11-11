@@ -1,9 +1,12 @@
-
+.netlify/
+.pytest_cache/
 .venv/
 .venv*/
 venv/
 node_modules/
 __pycache__/
+*.pyc
+*.pyo
 *.pth
 *.onnx
 data/minds/spool.jsonl
