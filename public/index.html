@@ -31,7 +31,7 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "SoftwareApplication",
+        "@type": ["WebApplication", "SoftwareApplication"],
         "name": "Zoth Scene Foundry",
         "url": "https://zoth-scene-foundry.netlify.app/",
         "applicationCategory": "MultimediaApplication",
@@ -44,7 +44,7 @@
         },
         "creator": {
           "@type": "Organization",
-          "name": "1nc0gn30 • NullAI",
+          "name": "Neal Frazier Tech (@1nc0gn30) • NullAI Platform",
           "url": "https://nullai.tech"
         }
       },
@@ -72,7 +72,7 @@
             "name": "Is Zoth Scene Foundry completely free?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes, it is 100% free and open-source under the MIT license, with optional support via Buy Us a Coffee."
+              "text": "Yes, it is 100% free and open-source under the MIT license, with optional support via Buy Us a Coffee on Stripe (https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X) or Solana (GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK)."
             }
           }
         ]
@@ -326,12 +326,13 @@
 <body>
 
   <!-- Support Bar -->
-  <div class="support-bar">
-    <span class="badge-open">✦ 100% FREE &amp; OPEN SOURCE</span>
+  <div id="zoth-coffee-support-bar" class="support-bar">
+    <span class="badge-open" style="background:#065F46;color:#FFFFFF;padding:4px 10px;border-radius:999px;font-weight:800;">✦ 100% FREE &amp; OPEN ACCESS · ZERO PAYWALLS</span>
     <span>Foundry Daemon: <code>:8823</code></span>
-    <a class="btn-gold" href="https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X" target="_blank" rel="noopener noreferrer">
-      ☕ Buy Us a Coffee
+    <a class="btn-gold" style="background:#D4AF37;color:#08080B;" href="https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X" target="_blank" rel="noopener noreferrer">
+      ☕ Buy Us a Coffee (Stripe)
     </a>
+    <button type="button" class="btn-sol" style="background:#047857;color:#FFFFFF;border:1px solid #10B981;" onclick="navigator.clipboard&&navigator.clipboard.writeText('GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK');this.textContent='✓ Copied GG2eQb...!'">◎ Solana Tip (GG2e...dXoK)</button>
     <button id="themeToggleBtn" type="button" class="btn-sol" onclick="document.documentElement.setAttribute('data-theme', document.documentElement.getAttribute('data-theme')==='light'?'dark':'light')">☀ Light / Dark</button>
   </div>
 
@@ -412,12 +413,13 @@
     <!-- Footer -->
     <footer>
       <div>
-        Engineered by <strong>1nc0gn30 (@1nc0gn30) • NullAI Platform</strong>
+        Engineered by <strong>Neal Frazier Tech (@1nc0gn30) • NullAI Platform</strong>
       </div>
       <div>
         <a href="https://github.com/1nc0gn30/zoth-scene-foundry" target="_blank" rel="noopener noreferrer">GitHub: zoth-scene-foundry</a> ·
         <a href="/gallery.html">1000-Scene Gallery</a> ·
-        <a href="https://zoth.nullai.tech" target="_blank" rel="noopener noreferrer">Zoth Studio</a>
+        <a href="https://zoth.nullai.tech" target="_blank" rel="noopener noreferrer">Zoth Studio</a> ·
+        <a href="https://nullai.tech" target="_blank" rel="noopener noreferrer">NullAI.tech</a>
       </div>
     </footer>
   </main>
@@ -548,5 +550,6 @@
     });
   </script>
 
+  <script src="/assets/sovereign-upgrade.js" defer></script>
 </body>
 </html>

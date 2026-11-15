@@ -9,7 +9,7 @@
 - **Zoth Studio Dossier**: [https://zoth.nullai.tech/tools/zoth-scene-foundry](https://zoth.nullai.tech/tools/zoth-scene-foundry)
 - **Local Workstation URL**: `http://127.0.0.1:8823`
 - **Repository**: [https://github.com/1nc0gn30/zoth-scene-foundry](https://github.com/1nc0gn30/zoth-scene-foundry)
-- **Author**: [1nc0gn30](https://1nc0gn30.si) (`@1nc0gn30`) • [NullAI](https://nullai.tech)
+- **Author**: Neal Frazier Tech (`@1nc0gn30`) • [NullAI Platform](https://nullai.tech)
 
 ## Overview
 
@@ -100,8 +100,8 @@ python3 server.py --status --json
 
 ## Support
 
-Zoth Scene Foundry is 100% free and open-source with zero paywalls or feature gates. Optional support: [Buy Us a Coffee (Stripe)](https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X).
+Zoth Scene Foundry is 100% free and open-source with zero paywalls or feature gates. Optional support: [Buy Us a Coffee (Stripe)](https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X) · Solana Tip Address: `GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK`.
 
 ## License
 
-Released under the [MIT License](LICENSE). Copyright (c) 2026 [1nc0gn30](https://1nc0gn30.si) & [NullAI](https://nullai.tech).
+Released under the [MIT License](LICENSE). Copyright (c) 2026 Neal Frazier Tech (`@1nc0gn30`) & [NullAI Platform](https://nullai.tech).
