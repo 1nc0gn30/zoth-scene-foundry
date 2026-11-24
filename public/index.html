@@ -332,7 +332,7 @@
     <a class="btn-gold" style="background:#D4AF37;color:#08080B;" href="https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X" target="_blank" rel="noopener noreferrer">
       ☕ Buy Us a Coffee (Stripe)
     </a>
-    <button type="button" class="btn-sol" style="background:#047857;color:#FFFFFF;border:1px solid #10B981;" onclick="navigator.clipboard&&navigator.clipboard.writeText('GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK');this.textContent='✓ Copied GG2eQb...!'">◎ Solana Tip (GG2e...dXoK)</button>
+    <button type="button" class="btn-sol" style="background:#047857;color:#FFFFFF;border:1px solid #10B981;" onclick="navigator.clipboard?.writeText('GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK')?.catch(()=>{});this.textContent='✓ Copied GG2eQb...!'">◎ Solana Tip (GG2e...dXoK)</button>
     <button id="themeToggleBtn" type="button" class="btn-sol" onclick="document.documentElement.setAttribute('data-theme', document.documentElement.getAttribute('data-theme')==='light'?'dark':'light')">☀ Light / Dark</button>
   </div>
 
@@ -404,7 +404,7 @@
         </div>
         <div style="display:flex; gap:10px;">
           <button type="button" class="btn-gold" onclick="synthesizeScene()">Synthesize ASCII Scene ⚡</button>
-          <button type="button" class="btn-sol" onclick="navigator.clipboard.writeText(document.getElementById('cliOut').textContent)">Copy ASCII Output</button>
+          <button type="button" class="btn-sol" onclick="navigator.clipboard?.writeText(document.getElementById('cliOut').textContent)?.catch(()=>{})">Copy ASCII Output</button>
         </div>
         <pre id="cliOut">[FOUNDRY] Engine ready. 1000 deterministic scenes cataloged in out/index.json.</pre>
       </div>
